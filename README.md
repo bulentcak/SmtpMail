@@ -1,5 +1,5 @@
 # SmtpMail
- 
+ ```php
  $smtp=new SmtpClass;
  $response = $smtp->send((object)array(
          'to'=>'bulent@bulentcakir.com.tr',
@@ -8,3 +8,4 @@
          .date("d.m.Y H:i:s")
          .'</span></p>',
      ));
+´´´
