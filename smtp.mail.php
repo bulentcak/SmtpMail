@@ -1,12 +1,12 @@
 <?php
 class SmtpClass
 {
-    var $user = 'YourAccount';
-    var $pass = 'YourPass';
-    var $host = 'YourMailHost'; 
-    var $port = 25;
-    var $from =  '';
-    var $params;
+    private $user = 'YourAccount';
+    private $pass = 'YourPass';
+    private $host = 'YourMailHost'; 
+    private $port = 25;
+    private $from =  '';
+    public $params;
     function send($params=null)
     {
         if($params==null) $params=(object)array();
@@ -17,7 +17,7 @@ class SmtpClass
         return false;
     }
     
-    function smtp_mail($to, $subject, $message, $headers = '')
+    private function smtp_mail($to, $subject, $message, $headers = '')
     {
         
         $recipients = explode(',', $to);
@@ -90,7 +90,7 @@ class SmtpClass
         return true;
     }
     
-    function get($socket,$length=1024)
+    private function get($socket,$length=1024)
     {
         $send = '';
         $sr = fgets($socket,$length);
@@ -103,7 +103,7 @@ class SmtpClass
         return $send;
     }
     
-    function put($socket,$cmd,$length=1024)
+    private function put($socket,$cmd,$length=1024)
     {
         fputs($socket,$cmd."\r\n",$length);
     }
