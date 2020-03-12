@@ -103,8 +103,9 @@ class SmtpClass
         return $send;
     }
     
-    private function put($socket,$cmd,$length=1024)
+    private function put($socket,$cmd,$length=1024) 
     {
+		
         fputs($socket,$cmd."\r\n",$length);
     }
 }
